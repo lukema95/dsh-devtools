@@ -1,0 +1,82 @@
+{
+  "name": "@lukema/dsh-devtools",
+  "version": "0.1.0",
+  "description": "Developer tool integrations for DeepSeek Harness: connect MCP servers, govern their tools, and inspect what the agent did.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "host",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "screenshots.json",
+    "assets/icon-180.png"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.2-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "mcp",
+    "devtools",
+    "figma",
+    "github",
+    "vercel",
+    "notion",
+    "linear",
+    "digitalocean"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "node test/host.test.mjs && node test/selection.test.mjs && node test/oauth.test.mjs && node test/client.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "author": {
+    "name": "lukema",
+    "url": "https://github.com/lukema95"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukema95/dsh-devtools.git"
+  },
+  "homepage": "https://github.com/lukema95/dsh-devtools#readme",
+  "bugs": {
+    "url": "https://github.com/lukema95/dsh-devtools/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

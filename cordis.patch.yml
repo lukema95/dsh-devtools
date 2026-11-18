@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-devtools
+      name: '@lukema/dsh-devtools'
+      config: {}

@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "DevTools",
+    "description": "Connect GitHub, Figma, Vercel, DigitalOcean, Notion and Linear as MCP servers, then manage their tools, permissions and call history from one panel. Open it from the DevTools entry in the sidebar. GitHub uses a personal access token, Figma uses its desktop MCP server, and Vercel, DigitalOcean, Notion and Linear sign in through the browser with OAuth. Tool risk is inferred from names and descriptions, and every policy can be overridden on the Permissions page. Activity is recorded by this plugin and keeps the most recent 200 calls.",
+    "detail": "docs/DETAIL.md"
+  }
+}

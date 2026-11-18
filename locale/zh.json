@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "开发工具",
+    "description": "把 GitHub、Figma、Vercel、DigitalOcean、Notion 和 Linear 作为 MCP 服务器接入，并在一处管理它们的工具、权限和调用记录。从侧边栏的“开发工具”入口打开。GitHub 使用个人访问令牌，Figma 使用桌面 MCP 服务器，Vercel、DigitalOcean、Notion 和 Linear 通过浏览器 OAuth 登录。工具风险根据名称和描述推断，所有策略都可以在“权限”页覆盖。活动记录由本插件保存，仅保留最近 200 次调用。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}
