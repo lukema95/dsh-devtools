@@ -1,1 +1,1 @@
-![DSH DevTools integrations panel](screenshot.webp)
+![DSH DevTools integrations panel](screenshot-integrations.webp)

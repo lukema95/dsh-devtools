@@ -15,7 +15,7 @@ Developer tool integrations for DeepSeek Harness. Connect GitHub, Figma, Vercel,
 DigitalOcean, Notion and Linear as MCP servers, then manage their tools,
 permissions and call history from one panel inside DSH.
 
-![DSH DevTools integrations panel](https://raw.githubusercontent.com/lukema95/dsh-devtools/main/docs/screenshot.webp)
+![DSH DevTools integrations panel](https://raw.githubusercontent.com/lukema95/dsh-devtools/main/docs/screenshot-integrations.webp)
 
 npm: [`@lukema/dsh-devtools`](https://www.npmjs.com/package/@lukema/dsh-devtools)  
 Project: [github.com/lukema95/dsh-devtools](https://github.com/lukema95/dsh-devtools)  

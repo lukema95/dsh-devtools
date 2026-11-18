@@ -14,7 +14,7 @@ DeepSeek Harness 的开发者工具集成。把 GitHub、Figma、Vercel、Digita
 Notion 和 Linear 作为 MCP server 接入，然后在 DSH 的一个面板里统一管理工具、
 权限和调用历史。
 
-![DSH DevTools integrations panel](https://raw.githubusercontent.com/lukema95/dsh-devtools/main/docs/screenshot.webp)
+![DSH DevTools integrations panel](https://raw.githubusercontent.com/lukema95/dsh-devtools/main/docs/screenshot-integrations.webp)
 
 npm：[`@lukema/dsh-devtools`](https://www.npmjs.com/package/@lukema/dsh-devtools)  
 项目主页：[github.com/lukema95/dsh-devtools](https://github.com/lukema95/dsh-devtools)  
