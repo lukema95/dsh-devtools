@@ -93,6 +93,7 @@ const services = {
   },
   tools: {
     definitions: () => tools,
+    schemas: () => tools,
     get: name => tools.find(tool => tool.name === name),
     register(definition) {
       discoveryTools.push(definition)
@@ -189,6 +190,18 @@ const figmaPreset = result.payload.providers.find(provider => provider.id === 'f
 assert.equal(figmaPreset.authMode, 'oauth')
 assert.equal(figmaPreset.oauth, true)
 assert.equal(figmaPreset.url, 'https://mcp.figma.com/mcp')
+
+// DSH 0.2.1 exposes the registry as schemas() instead of definitions().
+// The panel must still render its state rather than failing with a TypeError.
+const definitions = services.tools.definitions
+try {
+  delete services.tools.definitions
+  result = await post('state')
+  assert.equal(result.status, 200, JSON.stringify(result.payload))
+  assert.equal(result.payload.providers.length, 6)
+} finally {
+  services.tools.definitions = definitions
+}
 
 // GitHub is token-only: a tokenless connect is refused.
 result = await post('connect', { id: 'github' })

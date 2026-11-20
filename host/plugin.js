@@ -214,7 +214,7 @@ class DevToolsHost {
   /** The public names of MCP tools the user disabled. */
   disabledToolNames() {
     const names = []
-    for (const definition of this.ctx.tools.definitions()) {
+    for (const definition of this.toolDefinitions()) {
       const info = this.describeTool(definition.name)
       if (info !== undefined && !this.toolEnabled(info.providerId, info.rawName)) names.push(definition.name)
     }
@@ -302,7 +302,7 @@ class DevToolsHost {
     const providerId = typeof raw.provider === 'string' ? raw.provider.trim() : ''
     const limit = Math.min(50, Math.max(1, Number(raw.limit) > 0 ? Math.floor(Number(raw.limit)) : 25))
     const hits = []
-    for (const definition of this.ctx.tools.definitions()) {
+    for (const definition of this.toolDefinitions()) {
       if (!definition.name.startsWith('mcp__')) continue
       const info = this.describeTool(definition.name)
       if (info === undefined) continue
@@ -367,10 +367,31 @@ class DevToolsHost {
     }, 900)
   }
 
+  /**
+   * Enumerate registered tools across DSH versions. `definitions()` exists in
+   * 0.2.2+; 0.2.1 exposed the same registry through `schemas()`. Falling back
+   * keeps the panel from failing to render on an otherwise supported host.
+   * @returns {readonly { name: string, description?: string, parameters?: unknown }[]} tool definitions
+   */
+  toolDefinitions() {
+    const tools = this.ctx.tools
+    try {
+      if (typeof tools?.definitions === 'function') return tools.definitions()
+    } catch (error) {
+      this.warn('reading tool definitions failed; trying schemas', error)
+    }
+    try {
+      if (typeof tools?.schemas === 'function') return tools.schemas()
+    } catch (error) {
+      this.warn('reading tool schemas failed', error)
+    }
+    return []
+  }
+
   /** Discover one provider's tools without going through the public snapshot. */
   providerFacts(id) {
     const facts = []
-    for (const definition of this.ctx.tools.definitions()) {
+    for (const definition of this.toolDefinitions()) {
       const info = this.describeTool(definition.name)
       if (info === undefined || info.providerId !== id) continue
       facts.push({
@@ -674,7 +695,7 @@ class DevToolsHost {
         this.warn('listing MCP servers failed', error)
       }
     }
-    const definitions = this.ctx.tools.definitions()
+    const definitions = this.toolDefinitions()
     /** @type {Map<string, typeof definitions>} */
     const byProvider = new Map()
     for (const definition of definitions) {

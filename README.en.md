@@ -60,7 +60,7 @@ Use `web` instead of `desktop` for the Web profile. Restart DSH, then open
 Pin a version when needed:
 
 ```bash
-dsh plugin --profile desktop add @lukema/dsh-devtools@0.1.0
+dsh plugin --profile desktop add @lukema/dsh-devtools@0.1.1
 ```
 
 ### From GitHub

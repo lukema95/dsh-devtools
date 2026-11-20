@@ -56,7 +56,7 @@ dsh plugin --profile desktop add @lukema/dsh-devtools
 需要固定版本时：
 
 ```bash
-dsh plugin --profile desktop add @lukema/dsh-devtools@0.1.0
+dsh plugin --profile desktop add @lukema/dsh-devtools@0.1.1
 ```
 
 ### 从 GitHub 安装

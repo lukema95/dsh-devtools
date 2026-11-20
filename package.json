@@ -1,6 +1,6 @@
 {
   "name": "@lukema/dsh-devtools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Developer tool integrations for DeepSeek Harness: connect MCP servers, govern their tools, and inspect what the agent did.",
   "type": "module",
   "main": "index.js",
